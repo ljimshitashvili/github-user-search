@@ -1,7 +1,7 @@
 export default function Header() {
   return (
     <div className="flex w-full items-center justify-between py-8">
-      <h1 className=" text-[#222731] text-2xl ">devfinder</h1>
+      <h1 className=" text-[#222731] text-2xl font-bold">devfinder</h1>
       <div>
         <h2 className="flex gap-[16px]">
           Dark
