@@ -11,13 +11,11 @@ const Header: React.FC<Props> = ({ light, setLight }) => {
   };
 
   return (
-    <div className="flex w-full items-center justify-between py-8">
+    <div className="flex w-full items-center justify-between py-8 max-w-sm md:max-w-xl lg:max-w-[730px] ">
       <h1
-        className={
-          light
-            ? "text-[#222731] text-2xl font-bold"
-            : "text-white text-2xl font-bold"
-        }
+        className={` text-2xl font-bold ${
+          light ? "text-[#222731]" : "text-white"
+        }`}
       >
         devfinder
       </h1>

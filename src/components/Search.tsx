@@ -5,7 +5,7 @@ interface Props {
 const Search: React.FC<Props> = ({ light }) => {
   return (
     <div
-      className={`w-full h-[60px] max-w-screen-sm px-[7px] flex gap-[7px] shadow-lg rounded-lg items-center justify-between mb-4 ${
+      className={`w-full h-[60px] px-[7px] flex gap-[7px] shadow-lg rounded-lg items-center justify-between mb-4 max-w-sm md:max-w-xl lg:max-w-[730px] ${
         light ? "bg-white" : "bg-[#1E2A47]"
       }`}
     >

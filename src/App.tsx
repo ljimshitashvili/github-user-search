@@ -8,11 +8,9 @@ function App() {
 
   return (
     <div
-      className={
-        light
-          ? "App px-[24px] min-h-screen bg-[#F2F2F2] flex flex-col items-center"
-          : "App px-[24px] min-h-screen bg-[#141D2F] flex flex-col items-center"
-      }
+      className={`App min-h-screen flex flex-col items-center justify-center px-6 md:px-24 ${
+        light ? "bg-[#F2F2F2]" : "bg-[#141D2F]"
+      }`}
     >
       <Header light={light} setLight={setLight} />
       <Search light={light} />

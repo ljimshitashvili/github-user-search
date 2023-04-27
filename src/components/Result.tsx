@@ -7,7 +7,7 @@ interface Props {
 const Result: React.FC<Props> = ({ light }) => {
   return (
     <div
-      className={`w-full max-w-screen-sm px-[24px] pt-6 pb-12 flex flex-col shadow-lg rounded-lg ${
+      className={`w-full px-[24px] pt-6 pb-12 flex flex-col shadow-lg rounded-lg max-w-sm md:max-w-xl lg:max-w-[730px] ${
         light ? " bg-white" : " bg-[#1E2A47]"
       }`}
     >
