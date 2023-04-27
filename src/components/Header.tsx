@@ -1,9 +1,31 @@
-export default function Header() {
+import { useState } from "react";
+
+interface Props {
+  light: Boolean;
+  setLight: any;
+}
+
+const Header: React.FC<Props> = ({ light, setLight }) => {
+  const changeDisplay = () => {
+    setLight(!light);
+  };
+
   return (
     <div className="flex w-full items-center justify-between py-8">
-      <h1 className=" text-[#222731] text-2xl font-bold">devfinder</h1>
+      <h1
+        className={
+          light
+            ? "text-[#222731] text-2xl font-bold"
+            : "text-white text-2xl font-bold"
+        }
+      >
+        devfinder
+      </h1>
       <div>
-        <h2 className="flex gap-[16px]">
+        <h2
+          className={light ? "flex gap-[16px]" : "hidden"}
+          onClick={changeDisplay}
+        >
           Dark
           <span>
             <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg">
@@ -15,7 +37,10 @@ export default function Header() {
             </svg>
           </span>
         </h2>
-        <h2 className="flex gap-[16px]">
+        <h2
+          className={!light ? "flex gap-[16px] text-white" : "hidden"}
+          onClick={changeDisplay}
+        >
           Light
           <span>
             <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg">
@@ -28,4 +53,6 @@ export default function Header() {
       </div>
     </div>
   );
-}
+};
+
+export default Header;
