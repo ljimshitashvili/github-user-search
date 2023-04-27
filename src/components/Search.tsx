@@ -7,8 +7,8 @@ const Search: React.FC<Props> = ({ light }) => {
     <div
       className={
         light
-          ? " w-full h-[60px] bg-white max-w-screen-sm px-[7px] flex gap-[7px] shadow-lg rounded-lg items-center justify-between"
-          : " w-full h-[60px] bg-[#1E2A47] max-w-screen-sm px-[7px] flex gap-[7px] shadow-lg rounded-lg items-center justify-between"
+          ? " w-full h-[60px] bg-white max-w-screen-sm px-[7px] flex gap-[7px] shadow-lg rounded-lg items-center justify-between mb-4"
+          : " w-full h-[60px] bg-[#1E2A47] max-w-screen-sm px-[7px] flex gap-[7px] shadow-lg rounded-lg items-center justify-between mb-4"
       }
     >
       <svg height="24" width="25" xmlns="http://www.w3.org/2000/svg">

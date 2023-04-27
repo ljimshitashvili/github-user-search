@@ -1,5 +1,6 @@
 import Header from "./components/Header";
 import Search from "./components/Search";
+import Result from "./components/Result";
 import { useState } from "react";
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
     >
       <Header light={light} setLight={setLight} />
       <Search light={light} />
+      <Result light={light} />
     </div>
   );
 }
