@@ -5,11 +5,9 @@ interface Props {
 const Search: React.FC<Props> = ({ light }) => {
   return (
     <div
-      className={
-        light
-          ? " w-full h-[60px] bg-white max-w-screen-sm px-[7px] flex gap-[7px] shadow-lg rounded-lg items-center justify-between mb-4"
-          : " w-full h-[60px] bg-[#1E2A47] max-w-screen-sm px-[7px] flex gap-[7px] shadow-lg rounded-lg items-center justify-between mb-4"
-      }
+      className={`w-full h-[60px] max-w-screen-sm px-[7px] flex gap-[7px] shadow-lg rounded-lg items-center justify-between mb-4 ${
+        light ? "bg-white" : "bg-[#1E2A47]"
+      }`}
     >
       <svg height="24" width="25" xmlns="http://www.w3.org/2000/svg">
         <path
@@ -20,11 +18,11 @@ const Search: React.FC<Props> = ({ light }) => {
       <input
         type="text"
         placeholder="Search GitHub username…"
-        className={
+        className={`w-full h-[50px] rounded-lg max-w-[75%] placeholder:text-[13px] ${
           light
-            ? "w-full h-[50px] rounded-lg max-w-[75%] placeholder:text-[13px]"
-            : "text-white bg-[#1E2A47] w-full h-[50px] rounded-lg max-w-[75%] placeholder:text-[13px] placeholder-white"
-        }
+            ? "bg-white"
+            : "bg-[#1E2A47] placeholder:text-[13px] placeholder-white text-white"
+        }`}
       />
       <button className="w-[96px] h-[50px] bg-[#0079FF] text-white rounded-lg">
         Search
