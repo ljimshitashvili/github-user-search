@@ -21,7 +21,7 @@ const Header: React.FC<Props> = ({ light, setLight }) => {
       >
         devfinder
       </h1>
-      <div>
+      <div className="cursor-pointer">
         <h2
           className={light ? "flex gap-[16px]" : "hidden"}
           onClick={changeDisplay}

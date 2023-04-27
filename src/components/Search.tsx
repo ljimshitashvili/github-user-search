@@ -22,8 +22,8 @@ const Search: React.FC<Props> = ({ light }) => {
         placeholder="Search GitHub username…"
         className={
           light
-            ? "w-full h-[50px] rounded-lg max-w-[184px] placeholder:text-[13px]"
-            : " bg-[#1E2A47] w-full h-[50px] rounded-lg max-w-[184px] placeholder:text-[13px] placeholder-white"
+            ? "w-full h-[50px] rounded-lg max-w-[75%] placeholder:text-[13px]"
+            : "text-white bg-[#1E2A47] w-full h-[50px] rounded-lg max-w-[75%] placeholder:text-[13px] placeholder-white"
         }
       />
       <button className="w-[96px] h-[50px] bg-[#0079FF] text-white rounded-lg">
