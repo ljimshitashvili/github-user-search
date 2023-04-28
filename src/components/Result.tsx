@@ -1,4 +1,7 @@
 import React from "react";
+import axios from "axios";
+
+import Avatar from "../photos/Oval.jpg";
 
 interface Props {
   light: Boolean;
@@ -8,15 +11,11 @@ const Result: React.FC<Props> = ({ light }) => {
   return (
     <div
       className={`w-full px-[24px] pt-6 pb-12 flex flex-col shadow-lg rounded-lg max-w-sm md:max-w-xl lg:max-w-[730px] ${
-        light ? " bg-white" : " bg-[#1E2A47]"
+        light ? "bg-white" : " bg-[#1E2A47]"
       }`}
     >
       <div className="flex gap-[19px] w-full mb-[33px]">
-        <img
-          src={require("../photos/Oval.jpg")}
-          alt="Octocat"
-          className="rounded-[50%]"
-        />
+        <img src={Avatar} alt="Octocat" className="rounded-[50%]" />
         <div>
           <h1
             className={`text-[16px] font-bold ${
