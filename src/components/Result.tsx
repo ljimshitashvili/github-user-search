@@ -1,13 +1,25 @@
-import React from "react";
+import React, { useEffect } from "react";
 import axios from "axios";
 
 import Avatar from "../photos/Oval.jpg";
 
 interface Props {
   light: Boolean;
+  user: String;
+  setUser: (user: string) => void;
 }
 
-const Result: React.FC<Props> = ({ light }) => {
+const Result: React.FC<Props> = ({ light, user, setUser }) => {
+  useEffect(() => {
+    const userInfo = async () => {
+      const response = await axios.get(
+        `https://api.github.com/users/ljimshitashvili`
+      );
+      const data = response.data;
+    };
+    userInfo();
+  }, []);
+
   return (
     <div
       className={`w-full px-[24px] pt-6 pb-12 flex flex-col shadow-lg rounded-lg max-w-sm md:max-w-xl lg:max-w-[730px] ${
