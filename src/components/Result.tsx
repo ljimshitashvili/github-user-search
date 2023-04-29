@@ -41,27 +41,30 @@ const Result: React.FC<Props> = ({
 
   return (
     <div
-      className={`w-full px-[24px] pt-6 pb-12 flex flex-col shadow-lg rounded-lg max-w-sm md:max-w-xl lg:max-w-[730px] ${
+      className={`w-full px-[24px] pt-6 pb-12 flex flex-col shadow-lg rounded-[15px] max-w-sm md:max-w-xl lg:max-w-[730px] lg:items-end ${
         light ? "bg-white" : " bg-[#1E2A47]"
       }`}
     >
-      <div className="flex gap-[19px] w-full mb-[33px]">
+      <div className="flex gap-[19px] w-full mb-[33px] lg:max-w-[480px] lg:relative lg:mb-5">
         <img
           src={user.avatar_url}
           alt="Octocat"
-          className="rounded-[50%] max-w-[117px] max-h-[117px]"
+          className="rounded-[50%] max-w-[117px] max-h-[117px] lg:absolute lg:left-[-154px]"
         />
-        <div>
-          <h1
-            className={`text-[16px] font-bold ${
-              light ? "text-[#2B3442]" : " text-white"
-            }`}
-          >
-            {user.name}
-          </h1>
-          <h2 className="text-[#0079FF] font-normal text-[13px]">
-            @{user.login}
-          </h2>
+        <div className="flex flex-col gap-1 lg:flex-row lg:justify-between lg:w-full">
+          <div>
+            <h1
+              className={`text-[16px] font-bold ${
+                light ? "text-[#2B3442]" : " text-white"
+              }`}
+            >
+              {user.name}
+            </h1>
+
+            <h2 className="text-[#0079FF] font-normal text-[13px]">
+              @{user.login}
+            </h2>
+          </div>
           <h3
             className={`font-normal text-[13px] ${
               light ? "text-[#697C9A]" : "text-white"
@@ -72,14 +75,14 @@ const Result: React.FC<Props> = ({
         </div>
       </div>
       <p
-        className={`text-[13px] leading-[25px] mb-[23px] ${
+        className={`w-full text-[13px] leading-[25px] mb-[23px] lg:max-w-[480px] ${
           light ? "text-[#4B6A9B]" : "text-white"
         }`}
       >
         {`${null ? user.bio : "This profile has no bio."}`}
       </p>
       <div
-        className={`flex w-full h-[85px] rounded-[10px] items-center justify-around mb-6 ${
+        className={`flex w-full h-[85px] rounded-[10px] items-center justify-around mb-6 lg:max-w-[480px] ${
           light ? "bg-[#F6F8FF]" : "bg-[#141D2F]"
         }`}
       >
@@ -126,9 +129,9 @@ const Result: React.FC<Props> = ({
           </span>
         </h1>
       </div>
-      <div className="flex flex-col gap-4">
+      <div className="flex flex-col gap-4 md:flex-wrap md:flex-row md:gap-0 lg:max-w-[480px]">
         <div
-          className={`flex gap-[13px] items-center ${
+          className={`flex gap-[13px] items-center md:w-1/2 md:mb-[15px] ${
             user.location === null ? "opacity-50" : "opacity-100"
           }`}
         >
@@ -147,7 +150,7 @@ const Result: React.FC<Props> = ({
           </h1>
         </div>
         <div
-          className={`flex gap-[13px] items-center ${
+          className={`flex gap-[13px] items-center md:w-1/2 md:mb-[15px] ${
             user.blog === "" ? "opacity-50" : "opacity-100"
           }`}
         >
@@ -166,7 +169,7 @@ const Result: React.FC<Props> = ({
           </h1>
         </div>
         <div
-          className={`flex gap-[13px] items-center ${
+          className={`flex gap-[13px] items-center md:w-1/2 md:mb-[15px] ${
             user.twitter_username === null ? "opacity-50" : "opacity-100"
           }`}
         >
@@ -189,7 +192,7 @@ const Result: React.FC<Props> = ({
           </h1>
         </div>
         <div
-          className={`flex gap-[13px] items-center ${
+          className={`flex gap-[13px] items-center md:w-1/2 md:mb-[15px] ${
             user.company === null ? "opacity-50" : "opacity-100"
           }`}
         >
