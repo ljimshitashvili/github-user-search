@@ -5,20 +5,39 @@ import Avatar from "../photos/Oval.jpg";
 
 interface Props {
   light: Boolean;
-  user: String;
-  setUser: (user: string) => void;
+  user: any;
+  setUser: (user: any) => void;
+  search: string;
+  result: Boolean;
+  setResult: (result: Boolean) => void;
 }
 
-const Result: React.FC<Props> = ({ light, user, setUser }) => {
+const Result: React.FC<Props> = ({
+  light,
+  user,
+  setUser,
+  search,
+  result,
+  setResult,
+}) => {
+  console.log(search);
+
   useEffect(() => {
     const userInfo = async () => {
-      const response = await axios.get(
-        `https://api.github.com/users/ljimshitashvili`
-      );
-      const data = response.data;
+      try {
+        const response = await axios.get(
+          `https://api.github.com/users/${search}`
+        );
+        const data = response.data;
+        setUser(data);
+        console.log(data);
+        setResult(true);
+      } catch (error) {
+        setResult(false);
+      }
     };
     userInfo();
-  }, []);
+  }, [search]);
 
   return (
     <div
@@ -27,22 +46,28 @@ const Result: React.FC<Props> = ({ light, user, setUser }) => {
       }`}
     >
       <div className="flex gap-[19px] w-full mb-[33px]">
-        <img src={Avatar} alt="Octocat" className="rounded-[50%]" />
+        <img
+          src={user.avatar_url}
+          alt="Octocat"
+          className="rounded-[50%] max-w-[117px] max-h-[117px]"
+        />
         <div>
           <h1
             className={`text-[16px] font-bold ${
               light ? "text-[#2B3442]" : " text-white"
             }`}
           >
-            Name
+            {user.name}
           </h1>
-          <h2 className="text-[#0079FF] font-normal text-[13px]">@username</h2>
+          <h2 className="text-[#0079FF] font-normal text-[13px]">
+            @{user.login}
+          </h2>
           <h3
             className={`font-normal text-[13px] ${
               light ? "text-[#697C9A]" : "text-white"
             }`}
           >
-            Joined
+            {user.created_at}
           </h3>
         </div>
       </div>
@@ -51,10 +76,8 @@ const Result: React.FC<Props> = ({ light, user, setUser }) => {
           light ? "text-[#4B6A9B]" : "text-white"
         }`}
       >
-        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio.
-        Quisque volutpat mattis eros.
+        {user.bio}
       </p>
-
       <div
         className={`flex w-full h-[85px] rounded-[10px] items-center justify-around mb-6 ${
           light ? "bg-[#F6F8FF]" : "bg-[#141D2F]"
@@ -71,7 +94,7 @@ const Result: React.FC<Props> = ({ light, user, setUser }) => {
               light ? " text-[#2B3442]" : "text-white"
             }`}
           >
-            8
+            {user.public_repos}
           </span>
         </h1>
         <h1
@@ -85,7 +108,7 @@ const Result: React.FC<Props> = ({ light, user, setUser }) => {
               light ? " text-[#2B3442]" : "text-white"
             }`}
           >
-            9
+            {user.followers}
           </span>
         </h1>
         <h1
@@ -99,7 +122,7 @@ const Result: React.FC<Props> = ({ light, user, setUser }) => {
               light ? " text-[#2B3442]" : "text-white"
             }`}
           >
-            10
+            {user.following}
           </span>
         </h1>
       </div>
@@ -116,7 +139,7 @@ const Result: React.FC<Props> = ({ light, user, setUser }) => {
               light ? "text-[#4B6A9B]" : "text-white"
             }`}
           >
-            San Francisco
+            {user.location}
           </h1>
         </div>
         <div className="flex gap-[13px] items-center">
@@ -131,7 +154,7 @@ const Result: React.FC<Props> = ({ light, user, setUser }) => {
               light ? "text-[#4B6A9B]" : "text-white"
             }`}
           >
-            link
+            {user.blog}
           </h1>
         </div>
         <div className="flex gap-[13px] items-center">
@@ -146,7 +169,7 @@ const Result: React.FC<Props> = ({ light, user, setUser }) => {
               light ? "text-[#4B6A9B]" : "text-white"
             }`}
           >
-            Not Available
+            {user.twitter_username}
           </h1>
         </div>
         <div className="flex gap-[13px] items-center">
@@ -160,7 +183,7 @@ const Result: React.FC<Props> = ({ light, user, setUser }) => {
               light ? "text-[#4B6A9B]" : "text-white"
             }`}
           >
-            @github
+            {user.company}
           </h1>
         </div>
       </div>

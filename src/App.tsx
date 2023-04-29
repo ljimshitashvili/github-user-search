@@ -4,8 +4,10 @@ import Result from "./components/Result";
 import { useState } from "react";
 
 function App() {
+  const [result, setResult] = useState<Boolean>(true);
   const [light, setLight] = useState<Boolean>(true);
-  const [user, setUser] = useState<string>("");
+  const [user, setUser] = useState<any>("");
+  const [search, setSearch] = useState<string>("octocat");
 
   return (
     <div
@@ -14,8 +16,20 @@ function App() {
       }`}
     >
       <Header light={light} setLight={setLight} />
-      <Search light={light} />
-      <Result light={light} user={user} setUser={setUser} />
+      <Search
+        light={light}
+        search={search}
+        setSearch={setSearch}
+        result={result}
+      />
+      <Result
+        light={light}
+        user={user}
+        setUser={setUser}
+        search={search}
+        result={result}
+        setResult={setResult}
+      />
     </div>
   );
 }
