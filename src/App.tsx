@@ -2,11 +2,16 @@ import Header from "./components/Header";
 import Search from "./components/Search";
 import Result from "./components/Result";
 import { useState } from "react";
+import { Users } from "./components/userInterface";
+
+type ObjectString = {
+  [key: string]: string;
+};
 
 function App() {
   const [result, setResult] = useState<Boolean>(true);
   const [light, setLight] = useState<Boolean>(true);
-  const [user, setUser] = useState<any>("");
+  const [user, setUser] = useState<Users | null>(null);
   const [search, setSearch] = useState<string>("octocat");
 
   return (

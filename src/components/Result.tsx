@@ -1,25 +1,19 @@
 import React, { useEffect } from "react";
 import axios from "axios";
+import { Users } from "./userInterface";
 
 import Avatar from "../photos/Oval.jpg";
 
 interface Props {
   light: Boolean;
-  user: any;
-  setUser: (user: any) => void;
+  user: Users;
+  setUser: (user: Users) => void;
   search: string;
   result: Boolean;
   setResult: (result: Boolean) => void;
 }
 
-const Result: React.FC<Props> = ({
-  light,
-  user,
-  setUser,
-  search,
-  result,
-  setResult,
-}) => {
+const Result = ({ light, user, setUser, search, result, setResult }: Props) => {
   useEffect(() => {
     const userInfo = async () => {
       try {
@@ -27,6 +21,8 @@ const Result: React.FC<Props> = ({
           `https://api.github.com/users/${search}`
         );
         const data = response.data;
+        console.log(data);
+
         setUser(data);
         setResult(true);
       } catch (error) {
@@ -52,6 +48,9 @@ const Result: React.FC<Props> = ({
   ];
 
   const createdAt = user?.created_at?.split("T")[0].split("-");
+  const year = createdAt ? createdAt[0] : undefined;
+  const month = createdAt ? months[createdAt[1]] : undefined;
+  const day = createdAt ? createdAt[2] : undefined;
 
   return (
     <div
@@ -84,8 +83,7 @@ const Result: React.FC<Props> = ({
               light ? "text-[#697C9A]" : "text-white"
             }`}
           >
-            Joined {createdAt && createdAt[2]}{" "}
-            {createdAt && months[createdAt[1] - 1]} {createdAt && createdAt[0]}
+            Joined {day} {month} {year}
           </h3>
         </div>
       </div>
