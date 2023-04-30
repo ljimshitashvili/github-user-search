@@ -11,7 +11,7 @@ type ObjectString = {
 function App() {
   const [result, setResult] = useState<Boolean>(true);
   const [light, setLight] = useState<Boolean>(true);
-  const [user, setUser] = useState<Users | null>(null);
+  const [user, setUser] = useState<Users | []>([]);
   const [search, setSearch] = useState<string>("octocat");
 
   return (

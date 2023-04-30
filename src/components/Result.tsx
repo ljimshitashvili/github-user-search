@@ -49,7 +49,7 @@ const Result = ({ light, user, setUser, search, result, setResult }: Props) => {
 
   const createdAt = user?.created_at?.split("T")[0].split("-");
   const year = createdAt ? createdAt[0] : undefined;
-  const month = createdAt ? months[createdAt[1]] : undefined;
+  const month = createdAt ? months[createdAt[1] - 1] : undefined;
   const day = createdAt ? createdAt[2] : undefined;
 
   return (

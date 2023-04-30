@@ -3,7 +3,7 @@ export interface Users {
   bio: string;
   blog: string;
   company: string;
-  created_at: Array<any>[0];
+  created_at: Array<string>;
   followers: number;
   following: number;
   location: string;
