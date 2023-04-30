@@ -6,7 +6,7 @@ import Avatar from "../photos/Oval.jpg";
 
 interface Props {
   light: Boolean;
-  user: Users;
+  user: any;
   setUser: (user: Users) => void;
   search: string;
   result: Boolean;
