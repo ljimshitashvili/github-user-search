@@ -20,8 +20,6 @@ const Result: React.FC<Props> = ({
   result,
   setResult,
 }) => {
-  console.log(search);
-
   useEffect(() => {
     const userInfo = async () => {
       try {
@@ -30,7 +28,6 @@ const Result: React.FC<Props> = ({
         );
         const data = response.data;
         setUser(data);
-        console.log(data);
         setResult(true);
       } catch (error) {
         setResult(false);
@@ -38,6 +35,23 @@ const Result: React.FC<Props> = ({
     };
     userInfo();
   }, [search]);
+
+  const months = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
+
+  const createdAt = user?.created_at?.split("T")[0].split("-");
 
   return (
     <div
@@ -70,7 +84,8 @@ const Result: React.FC<Props> = ({
               light ? "text-[#697C9A]" : "text-white"
             }`}
           >
-            {user.created_at}
+            Joined {createdAt && createdAt[2]}{" "}
+            {createdAt && months[createdAt[1] - 1]} {createdAt && createdAt[0]}
           </h3>
         </div>
       </div>
