@@ -2,10 +2,10 @@ import { useState } from "react";
 
 interface Props {
   light: Boolean;
-  setLight: any;
+  setLight: (light: Boolean) => void;
 }
 
-const Header: React.FC<Props> = ({ light, setLight }) => {
+const Header = ({ light, setLight }: Props) => {
   const changeDisplay = () => {
     setLight(!light);
   };

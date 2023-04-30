@@ -21,7 +21,6 @@ const Result = ({ light, user, setUser, search, result, setResult }: Props) => {
           `https://api.github.com/users/${search}`
         );
         const data = response.data;
-        console.log(data);
 
         setUser(data);
         setResult(true);
@@ -48,6 +47,8 @@ const Result = ({ light, user, setUser, search, result, setResult }: Props) => {
   ];
 
   const createdAt = user?.created_at?.split("T")[0].split("-");
+  console.log(user.created_at);
+
   const year = createdAt ? createdAt[0] : undefined;
   const month = createdAt ? months[createdAt[1] - 1] : undefined;
   const day = createdAt ? createdAt[2] : undefined;
